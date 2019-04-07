@@ -1,0 +1,27 @@
+*, html, body{
+  margin: 0;
+  padding: 0;
+}
+
+.thisweek{
+  width:90%;
+  height: auto;
+  margin: 20px auto;
+  border: 1px solid green;
+  padding: 20px;
+}
+
+.form{
+  width: 50%;
+  margin: 50px auto;
+}
+
+.form input{
+  height: 40px;
+  margin: 0 2px;
+  padding: 5px;
+}
+.form .search{
+  box-sizing: border-box;
+  width: 250px;
+}
