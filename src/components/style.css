@@ -1,0 +1,38 @@
+*, html, body{
+  margin: 0;
+  padding: 0;
+}
+
+
+.Weatherweek{
+  width: 50%;
+  margin: 50px auto;
+  border: 2px solid rgba(94, 193, 220, 0.5);
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 18px;
+  border-radius: 25px;
+}
+.Weatherweek .infoforweek{
+  padding: 20px 0;
+  border-bottom: .5px solid rgba(138, 151, 95,.5);
+}
+
+.Weatherweek .infoforweek span img{
+  margin: 0 0 -25px 50px;
+}
+
+.Weatherweek .infoforweek span{
+  font-size: 20px;
+}
+
+.navbar{
+  height: 70px;
+  background: #2d3031
+}
+.navbar .weather{
+  color: rgb(94, 193, 220);
+  text-align: center;
+  line-height: 70px;
+  font-size: 24px;
+}

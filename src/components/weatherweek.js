@@ -1,15 +1,38 @@
 import React from 'react';
+import './style.css';
 
 const Weatherweek = (props) => {
-  // console.log(props.temp);
   return (
     <div className="Weatherweek">
-      <div>avghumidity : {props.temp.day.avghumidity}</div>
-      <div>avgtemp_c : {props.temp.day.avgtemp_c}</div>
-      <div>avgtemp_f : {props.temp.day.avgtemp_f}</div>
-      <div>maxwind_kph : {props.temp.day.maxwind_kph}</div>
-      <br />
-      <div className='line'>_______________________________</div>
+
+      <div className='infoforweek'>
+        date : <span>{props.temp.date}</span>
+        <span><img src={props.temp.day.condition.icon} /></span>
+      </div>
+      <div className='infoforweek'>
+        Temperature in celsius (avg) : <span>{props.temp.day.avgtemp_c}</span>
+      </div>
+
+      <div className='infoforweek'>
+        Wind speed in kilometer per hour : <span>{props.temp.day.maxwind_kph}</span>
+      </div>
+
+      <div className='infoforweek'>
+        Weather text : <span>" {props.temp.day.condition.text} "</span>
+      </div>
+
+      <div className='infoforweek'>
+        Total precipitation in milimeter : <span>{props.temp.day.totalprecip_mm}</span>
+      </div>
+
+      <div className='infoforweek'>
+        Average visibility in kilometer : <span>{props.temp.day.avgvis_km}</span>
+      </div>
+
+      <div className='infoforweek'>
+        Average humidity as percentage : <span>{props.temp.day.avghumidity}</span>
+      </div>
+
     </div>
   );
 }
