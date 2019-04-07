@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Weatherweek from './components/weatherweek';
 import Fetch from './components/fetch';
-
+import Navbar from './components/navbar'
+import Weatherday from './components/weatherday';
 import './App.css';
 
 class App extends Component {
@@ -11,12 +12,17 @@ class App extends Component {
     status: false,
     day: 'false',
     city: null,
+    error: null,
   }
 
   componentDidMount() {
-    Fetch('gaza stript').then(data => {
-      this.setState({ forecastday: data.forecast.forecastday });
-    })
+    Fetch('gaza stript').then(res => {
+      if (res) {
+        this.setState({ forecastday: res.forecast.forecastday });
+      } else {
+        this.setState({ error: 'enter valid country or city' });
+      }
+    }).catch(err => console.log(err));
   }
 
   updateStatus = () => {
@@ -31,50 +37,45 @@ class App extends Component {
   onChange = (event) => {
     this.setState({ city: event.target.value });
   }
+
   handleSearch = () => {
     const { city } = this.state;
-    Fetch(city).then(data =>
-      this.setState({ forecastday: data.forecast.forecastday }));
+    Fetch(city).then(data => {
+      if (data) {
+        this.setState({ forecastday: data.forecast.forecastday });
+      } else {
+        this.setState({ error: 'enter valid country or city' });
+      }
+    })
   }
+
   render() {
 
     if (!this.state.forecastday) {
-      return <div>loading..</div>
+      return <div className='loading'>loading..</div>
+    }
+    if (this.state.error) {
+      return <div>bad request</div>
     }
     return (
       <div className="App">
+        <Navbar />
         <div className='form'>
-          <input className='search' type='text' onChange={this.onChange} />
-          <input className='btnday' type='submit' onClick={this.updateStatus} value='this day' />
-          <input className='btnweek' type='submit' onClick={this.updateStatusWeek} value='this week' />
-          <input className='btnsearch' type='submit' value='search' onClick={this.handleSearch} />
+          <div className='filed'>
+            <input placeholder='Search...' className='search' type='text' onChange={this.onChange} />
+            <input className='btnsearch' type='submit' value='search' onClick={this.handleSearch} />
+          </div>
+          <div className='day-week'>
+            <input className='btnday' type='submit' onClick={this.updateStatus} value='this day' />
+            <input className='btnweek' type='submit' onClick={this.updateStatusWeek} value='this week' />
+          </div>
         </div>
 
-        {this.state.status ? <div className='thisDay'>
-          <div className='maxwind_mph'>
-            {this.state.forecastday[0].day.avghumidity}
-          </div>
+        {this.state.status ?
+          <Weatherday weatherforday={this.state.forecastday}/> :
 
-          <div className='maxwind_mph'>
-            {this.state.forecastday[0].day.avgtemp_c}
-          </div>
-
-          <div className='maxwind_mph'>
-            {this.state.forecastday[0].day.avgtemp_f}
-          </div>
-
-          <div className='maxwind_mph'>
-            {this.state.forecastday[0].day.avgvis_km}
-          </div>
-
-          <div className='maxwind_mph'>
-            {this.state.forecastday[0].day.maxwind_mph}
-          </div>
-
-        </div> :
-          <div className='thisweek'> this week
-          {this.state.forecastday.map(t => <Weatherweek temp={t} />)}
-
+          <div className='thisweek'>
+            {this.state.forecastday.map(t => <Weatherweek temp={t} />)}
           </div>
         }
 
