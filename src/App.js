@@ -60,7 +60,8 @@ class App extends Component {
             <input placeholder='Search...' className='search' type='text' onChange={this.onChange} />
             <a className='btnsearch' onClick={this.handleSearch}><i className="fas fa-search"></i></a>
           </div>
-            {this.state.error? <span className='msgerror' > Enter valid city <i class="far fa-frown"></i></span>: <span></span>} 
+           
+           <div className='msguser'>{this.state.error? <span className='msgerror' >The city doesn't exist <i class="far fa-frown"></i> please, enter valid city</span>: <span></span>}</div> 
 
           <div className='day-week'>
             <input className='btnday' type='submit' onClick={this.updateStatus} value='this day' />

@@ -131,12 +131,17 @@ body{
   margin-top: 150px;
 }
 .msgerror{
-  padding-left: 40%;
+  text-align: center;
   color: red;
   font-size: 17px;
 }
 .far{
   font-size: 25px;
+}
+.msguser{
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {
