@@ -9,6 +9,7 @@
   - weather before leaving the house,because he is afraid of illness.
 
 ### **Goal**
+
 Find out the weather for the current day and next 7 days.
 
 **Stakholders**
@@ -28,6 +29,17 @@ Anyone who interested in weather.
 * Cd weather-app-A-n
 * Run ``` npm i ```
 * run ``` npm start``` to run the project
+### Global Weather
+Data can be accessed using:
+* City or town name
+* Latitude and Longitude (decimal degree)
+* UK postcode
+* US ZIP code
+* Canada postal code
+* IP address
+* Auto IP detection
+* Airport code
+* METAR
 
 ### **Technolgy Stack** : 
 
