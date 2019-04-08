@@ -10,32 +10,30 @@ class App extends Component {
   state = {
     forecastday: null,
     status: false,
-    day: 'false',
     city: null,
-    error: null,
+    error: false,
   }
 
   componentDidMount() {
-    Fetch('gaza stript').then(res => {
+    Fetch('gaza strip').then(res => {
       if (res) {
         this.setState({ forecastday: res.forecast.forecastday });
       } else {
-        this.setState({ error: 'enter valid country or city' });
+        this.setState({ error: true });
       }
     }).catch(err => console.log(err));
   }
 
   updateStatus = () => {
     this.setState({ status: true })
-    console.log(this.state.status);
   }
   updateStatusWeek = () => {
     this.setState({ status: false })
-    console.log(this.state.status);
   }
 
   onChange = (event) => {
     this.setState({ city: event.target.value });
+    this.setState({error: false})
   }
 
   handleSearch = () => {
@@ -44,7 +42,7 @@ class App extends Component {
       if (data) {
         this.setState({ forecastday: data.forecast.forecastday });
       } else {
-        this.setState({ error: 'enter valid country or city' });
+        this.setState({ error: true });
       }
     })
   }
@@ -54,17 +52,16 @@ class App extends Component {
     if (!this.state.forecastday) {
       return <div className='loading'>loading..</div>
     }
-    if (this.state.error) {
-      return <div>bad request</div>
-    }
     return (
       <div className="App">
         <Navbar />
         <div className='form'>
           <div className='filed'>
             <input placeholder='Search...' className='search' type='text' onChange={this.onChange} />
-            <input className='btnsearch' type='submit' value='search' onClick={this.handleSearch} />
+            <a className='btnsearch' onClick={this.handleSearch}><i className="fas fa-search"></i></a>
           </div>
+            {this.state.error? <span className='msgerror' > Enter valid city <i class="far fa-frown"></i></span>: <span></span>} 
+
           <div className='day-week'>
             <input className='btnday' type='submit' onClick={this.updateStatus} value='this day' />
             <input className='btnweek' type='submit' onClick={this.updateStatusWeek} value='this week' />
@@ -72,7 +69,7 @@ class App extends Component {
         </div>
 
         {this.state.status ?
-          <Weatherday weatherforday={this.state.forecastday}/> :
+          <Weatherday weatherforday={this.state.forecastday} /> :
 
           <div className='thisweek'>
             {this.state.forecastday.map(t => <Weatherweek temp={t} />)}

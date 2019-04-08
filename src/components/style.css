@@ -3,6 +3,30 @@
   padding: 0;
 }
 
+.thisDay{
+  width: 50%;
+  margin: 0 auto 100px;
+  border: 2px solid rgba(94, 193, 220, 0.5);
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 18px;
+  border-radius: 25px;
+  color: #333;
+}
+.thisDay .infoforday{
+  padding: 20px 0;
+  border-bottom: .5px solid rgba(138, 151, 95,.5);
+}
+
+.thisDay .infoforday span img{
+  margin: 0 0 -25px 50px;
+}
+
+.thisDay .infoforday span{
+  font-size: 20px;
+  color: black;
+  font-weight: 500;
+}
 
 .Weatherweek{
   width: 50%;
@@ -12,6 +36,7 @@
   box-sizing: border-box;
   font-size: 18px;
   border-radius: 25px;
+  color: #333;
 }
 .Weatherweek .infoforweek{
   padding: 20px 0;
@@ -23,7 +48,9 @@
 }
 
 .Weatherweek .infoforweek span{
+  font-weight: 500;
   font-size: 20px;
+  color: black;
 }
 
 .navbar{
@@ -35,4 +62,22 @@
   text-align: center;
   line-height: 70px;
   font-size: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .Weatherweek{
+    width: 90%;
+    font-size: 16
+  }
+  .Weatherweek .infoforweek span{
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .thisDay{
+    width: 90%;
+    font-size: 16px;
+  }
+  .thisDay .infoforday span{
+    font-size: 18px;
+  }
 }
