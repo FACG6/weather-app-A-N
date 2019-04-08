@@ -31,15 +31,15 @@ Anyone who interested in weather.
 * run ``` npm start``` to run the project
 ### Global Weather
 Data can be accessed using:
-* City or town name
-* Latitude and Longitude (decimal degree)
-* UK postcode
-* US ZIP code
-* Canada postal code
-* IP address
-* Auto IP detection
-* Airport code
-* METAR
+* City or town name like : Paris
+* Latitude and Longitude (decimal degree) like : 48.8567,2.3508
+* UK postcode like : SW1
+* US ZIP code like : 10001
+* Canada postal code like : G2J
+* IP address like : 100.0.0.1
+* Auto IP detection like : auto:ip
+* Airport code like : iata:DXB
+* METAR like : metar:EGLL
 
 ### **Technolgy Stack** : 
 
