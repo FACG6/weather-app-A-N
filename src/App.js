@@ -33,7 +33,7 @@ class App extends Component {
 
   onChange = (event) => {
     this.setState({ city: event.target.value });
-    this.setState({error: false})
+    this.setState({ error: false })
   }
 
   handleSearch = () => {
@@ -60,8 +60,6 @@ class App extends Component {
             <input placeholder='Search...' className='search' type='text' onChange={this.onChange} />
             <a className='btnsearch' onClick={this.handleSearch}><i className="fas fa-search"></i></a>
           </div>
-           
-           <div className='msguser'>{this.state.error? <span className='msgerror' >The city doesn't exist <i class="far fa-frown"></i> please, enter valid city</span>: <span></span>}</div> 
 
           <div className='day-week'>
             <input className='btnday' type='submit' onClick={this.updateStatus} value='this day' />
@@ -69,14 +67,12 @@ class App extends Component {
           </div>
         </div>
 
-        {this.state.status ?
+        <div className='msguser'>{this.state.error ? <div className='msgerror' >The city doesn't exist <i class="far fa-frown"></i> please, enter valid city</div> : this.state.status ?
           <Weatherday weatherforday={this.state.forecastday} /> :
 
           <div className='thisweek'>
             {this.state.forecastday.map(t => <Weatherweek temp={t} />)}
-          </div>
-        }
-
+          </div>}</div>
       </div>
     );
   }

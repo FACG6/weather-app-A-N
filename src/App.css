@@ -68,6 +68,7 @@ body{
   top: 50%;
   left: 50%;
   transform: translate(-50px,-50px);
+  font-size: 30px;
 }
 
 .filed{
@@ -130,18 +131,14 @@ body{
   color: red;
   margin-top: 150px;
 }
+
 .msgerror{
   text-align: center;
   color: red;
-  font-size: 17px;
+  font-size: 20px;
 }
 .far{
   font-size: 25px;
-}
-.msguser{
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
 }
 
 @media screen and (max-width: 768px) {
