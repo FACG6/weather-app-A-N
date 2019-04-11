@@ -78,7 +78,7 @@ body{
   border-radius: 40px;
   margin: auto;
   transition: width 2s;
-  transition-duration: 1s;
+  transition-duration: 2s;
   padding: 5px;
   box-sizing: border-box;
   box-shadow: 1px 1px 10px #78b8b8;
